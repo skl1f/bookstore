@@ -1,29 +1,36 @@
 # bookstore
 
-A complete example for Spring MVC + Maven + Hibernate CRUD operation
+A complete example for Spring MVC + Maven + Hibernate CRUD operation inside Docker
 
 # Running the Application
 
 + Open the Command Prompt
 + Go to the root project directory ( bookstore )
-+ Run the following maven command to download all dependent JARs.
+
++ Build/Rebuild ENV
 
 ```
-mvn eclipse:clean eclipse:eclipse
+docker-compose build --no-cache
 ```
 
-+ Run Tomcat server 
++ Start App
 
 ```
-mvn clean tomcat7:run
+docker-compose up
 ```
 
-+ Go to the browser and enter the following URL: 
++ Desctroy ENV
+
 ```
-http://localhost:8080/bookstore/book/
+docker-compose down
 ```
-The port number might be different in your case. Please have a look at the tomcat log in console for that.
+
++ Go to the browser and enter the following URL:
+
+```
+http://localhost/bookstore/book/
+```
+
 
 # Blog Reference:
-
 [https://shrestha-manoj.blogspot.com/2014/05/spring-mvc-maven-hibernate-crud-example.html](https://shrestha-manoj.blogspot.com/2014/05/spring-mvc-maven-hibernate-crud-example.html)
