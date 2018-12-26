@@ -15,5 +15,5 @@ services:
     image: mariadb
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: toor
+      MYSQL_ROOT_PASSWORD: ${jdbc_password:-toor}
     container_name: database
