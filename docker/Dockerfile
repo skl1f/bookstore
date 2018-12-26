@@ -9,7 +9,7 @@ ENV jdbc_password="toor"
 
 RUN git clone https://github.com/skl1f/bookstore.git && \
     cd bookstore && \
-    mvn package
+    mvn -Djdbc_url=$jdbc_url -Djdbc_username=$jdbc_username -Djdbc_password=$jdbc_password package
 
 FROM tomcat:8.0
 WORKDIR $CATALINA_HOME/webapps
