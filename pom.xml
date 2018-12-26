@@ -10,7 +10,7 @@
     <properties>
         <spring-version>4.0.3.RELEASE</spring-version>
         <hibernate-version>4.2.7.Final</hibernate-version>
-        <mysql-version>5.1.27</mysql-version>
+        <mariadb-version>2.3.0</mariadb-version>
         <apache-connection-pooling-version>1.4</apache-connection-pooling-version>
     </properties>
     <dependencies>
@@ -59,9 +59,9 @@
 
         <!-- MySQL -->
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>${mysql-version}</version>
+            <groupId>org.mariadb.jdbc</groupId>
+            <artifactId>mariadb-java-client</artifactId>
+            <version>${mariadb-version}</version>
         </dependency>
 
 
@@ -86,6 +86,7 @@
 
     </dependencies>
     <build>
+        <finalName>bookstore</finalName>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
@@ -96,11 +97,10 @@
             </resource>
         </resources>
         <plugins>
-            <!-- Tomcat 7 plugin -->
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
-                <artifactId>tomcat7-maven-plugin</artifactId>
-                <version>2.0</version>
+                <artifactId>tomcat8-maven-plugin</artifactId>
+                <version>3.0-r1756463</version>
             </plugin>
             <plugin>
                 <artifactId>maven-eclipse-plugin</artifactId>

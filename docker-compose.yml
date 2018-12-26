@@ -1,0 +1,19 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "80:8080"
+    environment:
+      CATALINA_OPTS: "-Djdbc.url=${jdbc_url:-\"jdbc:mysql://database/bookstore?createDatabaseIfNotExist=true&amp;amp;useUnicode=true&amp;amp;characterEncoding=utf-8&amp;amp;autoReconnect=true\"} \
+                       -Djdbc.username=${jdbc_username:-root} -Djdbc.password=${jdbc_password:-toor}"
+    container_name: webapp
+    depends_on:
+      - db
+    command: sh -c 'sleep 15 && catalina.sh run'
+  db:
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: toor
+    container_name: database
